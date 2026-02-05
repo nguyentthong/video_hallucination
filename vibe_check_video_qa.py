@@ -220,4 +220,4 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
-    # python vibe_check_video_qa.py --video-path /home/thong/weride_project/hallucination_vibecheck/vibe_check_examples/videos/_1CKVcXe06A.mp4 --question "what is the man in the video doing?"
+    # python vibe_check_video_qa.py --video-path /home/thong/hallucination_vibecheck/vibe_check_examples/videos/_1CKVcXe06A.mp4 --question "what is the man in the video doing?"

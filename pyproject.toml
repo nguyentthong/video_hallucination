@@ -1,0 +1,13 @@
+[project]
+name = "video-hallucination"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "accelerate>=1.13.0",
+    "qwen-vl-utils>=0.0.14",
+    "torch>=2.10.0",
+    "torchvision>=0.25.0",
+    "transformers==4.57.1",
+]

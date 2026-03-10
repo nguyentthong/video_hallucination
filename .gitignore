@@ -191,3 +191,4 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/python,linux
 raw_data
 weights
+sampled_frames

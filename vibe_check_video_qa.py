@@ -3,7 +3,10 @@ import json
 import os
 import time
 from dataclasses import dataclass
+import cv2
+import numpy as np
 from pathlib import Path
+import shutil
 from typing import Any, Dict, List, Optional, Tuple
 
 import torch
@@ -42,7 +45,8 @@ class LoadedModel:
 
 
 class ModelManager:
-    def __init__(self) -> None:
+    def __init__(self, args: "Namespace") -> None:
+        self.cli_args = args
         self._loaded: Optional[LoadedModel] = None
 
     def load(self, model_id: str) -> LoadedModel:
@@ -89,6 +93,19 @@ class ModelManager:
             return_video_kwargs=True,
             return_video_metadata=True,
         )
+        if self.cli_args.debug_with_n_frames is not None:
+            if os.path.exists("sampled_frames"):
+                shutil.rmtree("sampled_frames")
+            os.makedirs("sampled_frames", exist_ok=True)
+            for i in range(len(videos[0][0])):
+                frame = videos[0][0][i].numpy()
+                frame = np.transpose(frame, (1,2,0))
+                if frame.max() <= 1.0:
+                    frame = frame * 255.0
+
+                frame = np.clip(frame, 0, 255).astype(np.uint8)
+                frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+                cv2.imwrite(f"sampled_frames/sample_frame_{i:04d}.jpg", frame)
 
         video_metadatas = None
         if videos is not None:
@@ -146,21 +163,32 @@ class ModelManager:
         return out_text, debug
 
 
-def build_messages_for_video_qa(video_path: str, question: str) -> List[Dict[str, Any]]:
+def build_messages_for_video_qa(video_path: str, question: str, n_frames: Optional[int]) -> List[Dict[str, Any]]:
     grounding = (
         "IMPORTANT: only use information you can directly verify from the video. "
         "If you are unsure, say 'Not sure'. When possible, cite rough timestamps."
     )
     prompt = f"{grounding}\n\nQuestion: {question.strip()}"
-    return [
-        {
-            "role": "user",
-            "content": [
-                {"type": "video", "video": _to_file_uri(video_path)},
-                {"type": "text", "text": prompt},
-            ],
-        }
-    ]
+    if n_frames is not None:
+        return [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "video", "video": _to_file_uri(video_path), "nframes": n_frames},
+                    {"type": "text", "text": prompt},
+                ],
+            }
+        ]
+    else:
+        return [
+            {
+                "role": "user",
+                "content": [
+                    {"type": "video", "video": _to_file_uri(video_path)},
+                    {"type": "text", "text": prompt},
+                ],
+            }
+        ]
 
 
 def main() -> None:
@@ -191,6 +219,12 @@ def main() -> None:
         action="store_true",
         help="Print debug generation settings/timings as JSON.",
     )
+    parser.add_argument(
+        "--debug_with_n_frames",
+        type=int,
+        default=None,
+        help="Whether to debug with n number of frames or not",
+    )
     args = parser.parse_args()
 
     video_path = Path(args.video_path)
@@ -203,8 +237,8 @@ def main() -> None:
 
     force_fps = None if args.force_fps <= 0 else float(args.force_fps)
 
-    mm = ModelManager()
-    messages = build_messages_for_video_qa(str(video_path), question)
+    mm = ModelManager(args)
+    messages = build_messages_for_video_qa(str(video_path), question, args.debug_with_n_frames)
     answer, debug = mm.generate_one(
         args.model_id,
         messages,

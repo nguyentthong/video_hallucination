@@ -1,0 +1,33 @@
+{
+    "video_name": "0070_qvitl_0omZM.mp4",
+    "questions": [
+        "Did the initial cardigan scene occur between the arm transformation and the face transformation?",
+        "Did the arm transformation occur between the face transformation and the final scene?",
+        "Was the torso transformation closer to the initial scene than to the arm transformation?",
+        "Was the final scene closer to the outfit transformation than to the face transformation?",
+        "Did the full outfit transformation happen before the arm transformation shot?",
+        "Did the cardigan-to-hoodie outfit change appear before the hair changed into a messy bun?",
+        "Did the torso close-up showing the star hoodie appear before the face close-up transformation?",
+        "Did the arm transformation occur between the outfit transformation and the torso close-up transformation?",
+        "Did the face transformation occur between the torso close-up transformation and the final relaxed appearance?",
+        "Was the arm transformation closer to the outfit transformation than to the final appearance?",
+        "Was the face transformation closer to the torso close-up transformation than to the initial cardigan scene?",
+        "Did the sequence outfit transformation → arm sleeve change → torso close-up → face transformation follow that order?",
+        "Did the arm transformation happen after the outfit change, but before both the torso transformation and the face transformation?"
+    ],
+    "answers": [
+        "No",
+        "No",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes"
+    ]
+}

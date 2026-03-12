@@ -1,0 +1,43 @@
+{
+    "video_name": "0066_38oHDDB6DFE.mp4",
+    "questions": [
+        "Was the smallest coin painted last in the sequence?",
+        "Did the smallest coin appear painted only after the bottom coin was already colored?",
+        "Was the green coin colored before three other coins were already colored?",
+        "Did the blue color appear before the smallest coin became purple?",
+        "Was the top-right coin painted before the smallest coin?",
+        "Was the smallest coin painted before the middle-right coin?",
+        "Did the top-right coin receive paint before the middle-right coin?",
+        "Was the smallest coin painted between the top-right coin and the middle-right coin?",
+        "Was the middle-right coin painted between the smallest coin and the bottom coin?",
+        "Did the smallest coin get painted after the top row coins but before the lower coins?",
+        "Did the middle-right coin get painted after the smallest coin but before the bottom coin?",
+        "Did the top-left coin receive paint earlier than three other coins?",
+        "Did the smallest coin get painted exactly in the middle of the sequence?",
+        "Did three coins remain unpainted when the smallest coin was painted?",
+        "Did the purple color appear after both top-row coins were already colored?",
+        "Did the smallest coin become purple after the yellow coin was painted?",
+        "Did the smallest coin become purple before the bottom coin turned green?",
+        "Did the smallest coin become purple before the bottom coin turned green?"
+    ],
+    "answers": [
+        "No",
+        "No",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes"
+    ]
+}

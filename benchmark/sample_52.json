@@ -1,0 +1,27 @@
+{
+    "video_name": "0053_pyVSUQn3vhM.mp4",
+    "questions": [
+        "Did Crystal Palace score first?",
+        "Did the team wearing red and blue score first?",
+        "Did player number 12 provide the assist for the first goal?",
+        "During the penalty kick, did player number 9 miss after player number 7 missed?",
+        "In the second half of the video, did player number 12 score against Manchester City?",
+        "In the second half of the video, did Crystal Palace score again?",
+        "During the penalty, did the goalkeeper save player number 9’s shot immediately after saving the penalty?",
+        "Was the team that lifted the trophy the same team that scored first?",
+        "Was the team that lifted the trophy the one that successfully saved the penalty?",
+        "Was the final score of the Manchester City vs. Crystal Palace match 0–1?"
+    ],
+    "answers": [
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes"
+    ]
+}

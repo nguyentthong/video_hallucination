@@ -1,0 +1,27 @@
+{
+    "video_name": "0051_CYyUuIXzGgI.mp4",
+    "questions": [
+        "Did the teacher pull down the middle part of the board?",
+        "Did the teacher pull up the right part of the board?",
+        "Was the student in the white shirt the first to raise their hand to answer?",
+        "Was the student in the red shirt the second to raise their hand to answer?",
+        "Was there one student who raised their hand to speak?",
+        "Was there two student who raised their hand to speak?",
+        "Were there total two students who raised their hands to speak?",
+        "Was the student who celebrated with his friend the one who raised his hand first?",
+        "Did the student who raised his hand second later celebrate with his friend?",
+        "Did the student who raised his hand second receive the test paper with a score of 97%?"
+    ],
+    "answers": [
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes"
+    ]
+}

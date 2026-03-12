@@ -1,0 +1,43 @@
+{
+    "video_name": "0054_dtGayHobxpk.mp4",
+    "questions": [
+        "Was the winner the first to play?",
+        "Did the man in white play only two turns?",
+        "Other than the black ball, were no other balls potted before all the red balls were cleared?",
+        "Did the man need to use additional equipment to pot the green ball?",
+        "Was the ball positioned at the center of the table at the start potted before the pink ball?",
+        "Was the yellow ball potted before the green ball?",
+        "Did the player who went first win the match?",
+        "Was the pink ball potted before the blue ball?",
+        "Was the brown ball potted after all the red balls were cleared?",
+        "Were all red balls cleared before any colored ball was potted?",
+        "Was the green ball potted before the yellow ball?",
+        "Was the blue ball still on the table when the pink ball was potted?",
+        "Did the match end immediately after the black ball was potted?",
+        "Was the black ball positioned near a corner pocket before it was potted?",
+        "Were there three balls potted between the yellow ball and the pink ball?",
+        "Were there no balls potted between the brown ball and the blue ball?",
+        "Were fewer than three balls potted between the green ball and the brown ball?",
+        "Were exactly four balls potted between the yellow ball and the black ball?"
+    ],
+    "answers": [
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes"
+    ]
+}

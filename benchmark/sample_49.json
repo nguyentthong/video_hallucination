@@ -1,0 +1,35 @@
+{
+    "video_name": "0050_ImEnWAVRLU0.mp4",
+    "questions": [
+        "Did the interviewer use a computer during the interview?",
+        "Did the main male character use a computer to look up information?",
+        "In the video, were there three people interviewed before the main character?",
+        "In the video, were there two people interviewed before the main character?",
+        "In the video, were there four people interviewed before the main character?",
+        "Was the room where the main character stopped to talk to two men Room 2410?",
+        "Did he use the stairs to go upstairs?",
+        "Did he take the elevator to go upstairs?",
+        "Was the fake waiter not wearing gloves?",
+        "Was the waiter not wearing gloves?",
+        "Was the waiter who was standing in front of room 2410 not wearing gloves?",
+        "Did the interviewer read the book on the table during the interview?",
+        "Did the woman sitting in the Harvard Law Interviews room shake her head at all the applicants?",
+        "Did the woman sitting in the Harvard Law Interviews room shake her head at all the applicants?"
+    ],
+    "answers": [
+        "No",
+        "No",
+        "No",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes"
+    ]
+}

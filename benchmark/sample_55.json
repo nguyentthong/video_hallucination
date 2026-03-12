@@ -1,0 +1,41 @@
+{
+    "video_name": "0056_DhA7CGsACVI.mp4",
+    "questions": [
+        "Was the lipstick inside the box opened by the man on the left?",
+        "Were the bee and mantis toys inside box number 3?",
+        "Were the bee and mantis toys inside the box opened by the man on the right?",
+        "Was the doll head toy opened third?",
+        "Was the doll head toy inside box number 1?",
+        "Was the doll head toy opened by the man on the left?",
+        "Was box number 3 opened second?",
+        "Was box number 1 opened third?",
+        "Was the box containing the doll placed on top of the box containing the lipstick?",
+        "Did the man on the right open one box?",
+        "Was box number 3 opened immediately after box number 4?",
+        "Was box number 1 opened immediately after box number 3?",
+        "Were the bee and mantis toys inside the last box that was opened?",
+        "Did the two men open four boxes in total?",
+        "Did the man on the right open two boxes?",
+        "Did the man on the left open only one box?",
+        "Were there exactly two boxes opened between the lipstick box and the doll head box?"
+    ],
+    "answers": [
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "No",
+        "No",
+        "No",
+        "No",
+        "No"
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "video_name": "0055_iijvUf5xkkU.mp4",
+    "questions": [
+        "In the video, did the team in white fail to score any points?",
+        "In the video, did Canada fail to score any points?",
+        "In the video, did Japan’s number 11 serve in every round?",
+        "In the first round, did the white-shirted number 11 receive a serve from the red team?",
+        "After falling behind 13–9, did Canada substitute number 7 for number 6?",
+        "After falling behind 13–9, did Canada substitute number 6 for number 7?",
+        "In the first round, did the substituted player receive a serve from the red team?",
+        "When the score was 14–9, did Japan pcall a timeout?",
+        "When the score was 14–9, did Japan pause play to discuss strategy?",
+        "In the second round, with the score at 10–9, did the white-shirted number 23 successfully run out to save the ball?",
+        "In the third round, with the score at 11–9, did Japan’s numbers 11, 16 successfully receive the ball?",
+        "In the third round, with the score at 11–9, did Japan’s numbers 11, 16 successfully receive the ball?"
+    ],
+    "answers": [
+        "Yes",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "No",
+        "No",
+        "No"
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "video_name": "0035_543vvFbJJ-A.mp4",
+    "questions": [
+        "Does the player with white shirt score the first score first?",
+        "Does the player with orange and black shirt score the first score first?",
+        "Does the player with white shirt score the second score first?",
+        "Does the player with orange and black shirt score the second score first?",
+        "Does the player with orange and black shirt score the first score after being behind twice?",
+        "Does the player with orange and black shirt score the first score after being behind once?",
+        "Does the player with white shirt score the third score first?",
+        "Does the player with orange and black shirt score the third score first?"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No"
+    ]
+}

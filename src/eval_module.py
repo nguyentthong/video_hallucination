@@ -13,6 +13,7 @@ class Evaluator(ABC):
 
 class SimpleAnswerProcessor(AnswerProcessor):
     def __call__(self, answer: str) -> int:
+        _answer = answer.lower()
         if "Yes" in answer:
             return 1
         elif "No" in answer:

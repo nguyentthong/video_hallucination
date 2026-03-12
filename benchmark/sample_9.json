@@ -1,0 +1,31 @@
+{
+    "video_name": "0034_E-psLGFEeEM.mp4",
+    "questions": [
+        "Does the player with red shirt score first goal first?",
+        "Does the player with yellow shirt and green pants score first goal first?",
+        "Does the player with red shirt score second goal first?",
+        "Does the player with yellow shirt and green pants score second goal first?",
+        "Does the player with yellow shirt and green pants score first goal after being behind twice?",
+        "Does the player with red shirt score first goal after being behind twice?",
+        "Does the player with yellow shirt and green pants score second goal after scoring their first goal?",
+        "Does the player with red shirt score third goal after their opponents score their first goal?",
+        "Does the player with red shirt score third goal after their opponents score their second goal?",
+        "Does the player with yellow shirt and green pants score third goal after scoring their second goal?",
+        "Does the player with red shirt score fourth goal after scoring their third goal?",
+        "Does the player with yellow shirt and green pants score third goal after their opponents score their third goal?"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No"
+    ]
+}

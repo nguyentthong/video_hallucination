@@ -1,0 +1,15 @@
+{
+    "video_name": "0036_8_qh-yxk-qAOc.mp4",
+    "questions": [
+        "Does the player with red shirt, red pant number 66 score the goal?",
+        "Does the player with red shirt, red pant number 27 score the goal?",
+        "Does the player with red shirt, red pant number 66 pass the ball to number 27?",
+        "Does the player with red shirt, red pant number 27 pass the ball to number 66?"
+    ],
+    "answers": [
+        "No",
+        "Yes",
+        "Yes",
+        "No"
+    ]
+}

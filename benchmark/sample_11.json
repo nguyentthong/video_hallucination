@@ -1,0 +1,15 @@
+{
+    "video_name": "0036_1_qh-yxk-qAOc.mp4",
+    "questions": [
+        "Does the player with blue shirt number 23 shoot the ball into the net?",
+        "Does the player with blue shirt number 14 shoot the ball into the net?",
+        "Does the player in teal shirt number 27 score goal?",
+        "Does the player in teal shirt number 23 score goal?"
+    ],
+    "answers": [
+        "No",
+        "No",
+        "Yes",
+        "No"
+    ]
+}

@@ -228,4 +228,4 @@ def run_model(
         if debug_json:
             print(json.dumps(debug, indent=2))
 
-        return results
+    return results

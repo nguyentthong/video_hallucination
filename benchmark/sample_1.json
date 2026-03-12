@@ -1,9 +1,35 @@
 {
     "video_name": "0026_09uVWWLKNdc.mp4",
     "questions": [
-        "In the first experiment, did the yellow ball go to door number 1?"
+        "In the first experiment, did the yellow ball go to door number 1?",
+        "In the first experiment, did the yellow ball go to door number 2?",
+        "In the first experiment, did the yellow ball go to door number 3?",
+        "In the first experiment, did the white ball go to door number 1?",
+        "In the first experiment, did the white ball go to door number 2?",
+        "In the first experiment, did the white ball go to door number 3?",
+        "In the second experiment, did the yellow ball go to door number 1?",
+        "In the second experiment, did the yellow ball go to door number 2?",
+        "In the second experiment, did the yellow ball go to door number 3?",
+        "In the second experiment, did the red car hit the yellow ball?",
+        "In the second experiment, did the red car hit the brown obstacle?",
+        "In the third experiment, did the yellow ball go to door number 1?",
+        "In the third experiment, did the yellow ball go to door number 2?",
+        "In the third experiment, did the yellow ball go to door number 3"
     ],
     "answers": [
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "No",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
         "No"
     ]
 }

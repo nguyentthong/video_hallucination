@@ -1,0 +1,33 @@
+{
+    "video_name": "0028__wNtNtOlJQk.mp4",
+    "questions": [
+        "In the first game, in the first shoot, did the ball goes into the lowest basket?",
+        "In the first game, in the first shoot, did the ball goes into the highest basket?",
+        "In the first game, in the second shoot, did the ball goes into the mid-high right basket?",
+        "In the first game, in the second shoot, did the ball goes into the mid-high left basket?",
+        "In the first game, in the second shoot, did the ball goes into the near-high right basket?",
+        "In the first game, in the third shoot, did the ball goes into the mid-high left basket?",
+        "In the first game, in the third shoot, did the ball goes into the mid-high right basket?",
+        "In the first game, in the fourth shoot, did the ball goes into the near-high right basket?",
+        "In the first game, in the fourth shoot, did the ball goes into the highest basket?",
+        "In the first game, in the fifth shoot, did the ball goes into the near-high left basket?",
+        "In the first game, in the fifth shoot, did the ball goes into the highest basket?",
+        "In the first game, in the sixth shoot, did the ball goes into the lowest basket?",
+        "In the first game, in the sixth shoot, did the ball goes into the highest basket"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "No",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "Yes"
+    ]
+}

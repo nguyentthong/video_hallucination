@@ -1,0 +1,41 @@
+{
+    "video_name": "0027_8vfQLJ4zcqM.mp4",
+    "questions": [
+        "In the first experiment, did the first silver ball hit the red domino?",
+        "In the first experiment, did the second silver ball hit the red domino?",
+        "In the first experiment, the first silver ball hit the green domino?",
+        "In the first experiment, did the second silver ball go to the middle door?",
+        "In the first experiment, did the third silver ball go to the left door?",
+        "In the first experiment, did the third silver ball go to the middle door?",
+        "In the first experiment, did the third silver ball go to the right door?",
+        "In the second experiment, did the first ball hit the red domino?",
+        "In the second experiment, did the first ball hit the blue rotating hand?",
+        "In the second experiment, did the second ball hit the red domino?",
+        "In the second experiment, did the second ball hit the blue rotating hand?",
+        "In the second experiment, did the third ball hit the red domino?",
+        "In the second experiment, did the third ball hit the blue rotating hand?",
+        "In the second experiment, did the blue rotating hand hit the red domino?",
+        "In the second experiment, did the fourth ball go to the left door?",
+        "In the second experiment, did the fourth ball go to the middle door?",
+        "In the second experiment, did the fourth ball go to the right door"
+    ],
+    "answers": [
+        "Yes",
+        "Yes",
+        "No",
+        "No",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "No"
+    ]
+}

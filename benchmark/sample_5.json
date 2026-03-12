@@ -1,0 +1,39 @@
+{
+    "video_name": "0030_YgB4tkaFQrM.mp4",
+    "questions": [
+        "For the first score, does player with black shirt number 30 pass the ball to number 6?",
+        "For the first score, does player with black shirt number 30 pass the ball to number 7?",
+        "For the first score, does the player 6 after receiving ball from player 30 slam dunk?",
+        "For the first score, does the player 30 after receiving ball from player 6 slam dunk?",
+        "For the second score, does the player with white shirt number 30 throw the ball into the net?",
+        "For the second score, does the player with white shirt number 9 throw the ball into the net?",
+        "For the third score, does the player with black shirt nubmer 6 throw the ball into the net?",
+        "For the third score, does the player with black shirt nubmer 9 throw the ball into the net?",
+        "For the fourth score, does the player with white shirt number 35 throw the ball into the net?",
+        "For the fourth score, does the player with black shirt number 6 throw the ball into the net?",
+        "For the fifth score, does the player with black shirt number 6 throw the ball into the net?",
+        "For the fifth score, does the player with white shirt number 35 throw the ball into the net?",
+        "For the fifth score, does the player with black shirt number 9 throw the ball into the net?",
+        "For the sixth score, does the player with white shirt number 35 throw the ball into the net?",
+        "For the sixth score, does the player with black shirt number 6 throw the ball into the net?",
+        "For the sixth score, does the player with white shirt number 30 throw the ball into the net"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "No"
+    ]
+}

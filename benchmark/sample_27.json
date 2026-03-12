@@ -1,0 +1,25 @@
+{
+    "video_name": "0016_NtTb-Cw6JVs.mp4",
+    "questions": [
+        "Does the man on the left side first drop the red cup?",
+        "Does the woman in the middle first drop the pink cup?",
+        "Does the man on the right side first drop the red cup?",
+        "Does the man on the left side first drop the purple cup?",
+        "Does the man on the right side first drop the green cup?",
+        "Does the woman in the middle win the game?",
+        "Does the woman in the middle first drop the red cup?",
+        "Does the man on the left side win the game?",
+        "Does the man on the right side win the game?"
+    ],
+    "answers": [
+        "Yes",
+        "Yes",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "No"
+    ]
+}

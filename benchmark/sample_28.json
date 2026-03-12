@@ -1,0 +1,39 @@
+{
+    "video_name": "0017_riSrqS-r608.mp4",
+    "questions": [
+        "Does the man on the left first blow the green ball?",
+        "Does the man on the left first blow the red ball?",
+        "Does the woman on the right first blow the green ball?",
+        "Does the woman on the right first blow the red ball?",
+        "In the first game, did the man win?",
+        "In the first game, did the woman win?",
+        "In the second game, did the man first blow the green ball?",
+        "In the second game, did the woman first blow the green ball?",
+        "In the second game, did the man first blow the red ball?",
+        "In the second game, did the woman first blow the red ball?",
+        "In the second game, did the man win?",
+        "In the second game, did the woman win?",
+        "In the third game, did the man on the left side throw a red liquid bottle?",
+        "In the third game, did the man on the right side throw a red liquid bottle?",
+        "In the third game, did the man on the left side throw a blue liquid bottle?",
+        "In the third game, did the man on the right side throw a blue liquid bottle?"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "No"
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "video_name": "0039_yYsqEIKAtO4.mp4",
+    "questions": [
+        "Does the man with white costumes change his face from red to yellow?",
+        "Does the man with red costumes change his face from red to black?",
+        "Does the man with white costumes change his face from red to black?",
+        "Does the man with red costumes change his face from red to blue?",
+        "Does the man with black costumes change his face from red to white?",
+        "Does the man with black costumes change his face from red to green?",
+        "Does the man with red costumes change his face from black to yellow?"
+    ],
+    "answers": [
+        "Yes",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "Yes"
+    ]
+}

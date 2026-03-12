@@ -1,0 +1,23 @@
+{
+    "video_name": "0043_H12SMAiCexw.mp4",
+    "questions": [
+        "Are there in total 4 sewing machines?",
+        "Are there in total 8 sewing machines?",
+        "Are there in total 1 cake?",
+        "Are there in total 4 cakes?",
+        "Is the number 1 sewing machine a cake?",
+        "Is the number 2 sewing machine a cake?",
+        "Is the number 3 sewing machine a cake?",
+        "Is the number 4 sewing machine a cake?"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "No"
+    ]
+}

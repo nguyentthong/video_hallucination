@@ -1,0 +1,35 @@
+{
+    "video_name": "0038_VDcoROd7N3s.mp4",
+    "questions": [
+        "Is the yellow object under the brown object after the woman lift up both objects?",
+        "Is the white object under the pink object after the woman life up both objects?",
+        "Is the white object under the brown object after the woman life up both objects?",
+        "Is the yellow object under the pink object after the woman life up both objects?",
+        "Is the yellow object first hid under the brown object?",
+        "Is the white object first hid under the pink object?",
+        "Is the white object first hid under the brown object?",
+        "Is the yellow object first hid under the pink object?",
+        "Does the yellow object teleport from the brown object to the pink object?",
+        "Does the white object teleport from the pink object to the brown object?",
+        "Does the object under brown object have the same color before and after the object is placed on top of it?",
+        "Does the object under pink object have the same color before and after the object is placed on top of it?",
+        "Does the object under brown object have different color before and after the object is placed on top of it?",
+        "Does the object under brown object have different color before and after the object is placed on top of it?"
+    ],
+    "answers": [
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "Yes",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "Yes"
+    ]
+}

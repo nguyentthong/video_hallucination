@@ -1,0 +1,25 @@
+{
+    "video_name": "0022_iXKNG8sZ18k.mp4",
+    "questions": [
+        "Is the color above the first used color green?",
+        "Is the color above the first used color black?",
+        "Is the color above the first used color purple?",
+        "Is the second color used after black red?",
+        "Is the second color used after black green?",
+        "Is the second color used after black blue?",
+        "Are there in total 13 sand cups?",
+        "Are there in total 12 sand cups?",
+        "Are there in total 14 sand cups?"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "No"
+    ]
+}

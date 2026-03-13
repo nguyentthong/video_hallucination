@@ -1,7 +1,7 @@
 from src.run_model import load_model, run_model
 from src.load_data import load_benchmark
 from src.eval_module import EvaluationMaster, EvalModule, SimpleAnswerProcessor, AccuracyEvaluator
-from src.cache_sys import AnswerCacheSystem
+from src.cache_sys import AnswerCacheSystem, get_cache_id
 from argparse import ArgumentParser
 from tqdm import tqdm
 
@@ -13,11 +13,12 @@ def main(args):
         EvalModule("accuracy", processor=SimpleAnswerProcessor(), evaluator=AccuracyEvaluator()),
     ])
     for idx, benchmark_sample in enumerate(tqdm(benchmark_data)):
-        if not cache_system.exist(idx):
+        cache_id = get_cache_id(benchmark_sample['video_name'])
+        if not cache_system.exist(cache_id):
             answers = run_model(model_manager, args.model_id, benchmark_sample, sample_id=idx, debug_with_n_frames=args.debug_with_n_frames)
-            cache_system.push(idx, answers)
+            cache_system.push(cache_id, answers)
         else:
-            answers = cache_system.get(idx)
+            answers = cache_system.get(cache_id)
         eval_master.batch_push(predictions = answers, truths = benchmark_sample['answers'])
 
     result = eval_master.compute_result()

@@ -1,0 +1,27 @@
+{
+    "video_name": "0096_JMoUgI6MeLM.mp4",
+    "questions": [
+        "Were the marbles crushed first?",
+        "Was the doll put into the shredder first?",
+        "Was the metal tray put into the shredder second?",
+        "Was the metal tray shredded before the doll?",
+        "Was the metal tray shredded after the doll?",
+        "Was the diamond crushed last?",
+        "Was the diamond put into the shredder before the metal tray?",
+        "Was the diamond put into the shredder after the metal tray?",
+        "Were the superhero figures put into the shredder before the metal tubes and pencils?",
+        "Was the metal tube put into the shredder after the diamond and before the doll?"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "No"
+    ]
+}

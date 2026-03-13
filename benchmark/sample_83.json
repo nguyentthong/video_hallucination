@@ -1,0 +1,21 @@
+{
+    "video_name": "0087_k3rlRsZTiZw.mp4",
+    "questions": [
+        "In the first game, was the man in the blue t-shirt who popped the first green bubble?",
+        "In the first game, did the man in the red t-shirt win?",
+        "In the second game, did the man in the blue t-shirt win?",
+        "In the second game, did the man in the blue t-shirt start playing first?",
+        "In the third game, did the man in the red t-shirt start playing first?",
+        "In the third game, did the man in the red t-shirt win?",
+        "After all the games, is the man in the blue t-shirt the winner"
+    ],
+    "answers": [
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "Yes"
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "video_name": "0091_sZqeSCbcJak.mp4",
+    "questions": [
+        "Does the taller woman have to start playing first?",
+        "Does the shorter woman have to start playing first?",
+        "Is the man starting second?",
+        "Did the man start playing last?",
+        "Did the man start playing after the two women?",
+        "Does the shorter woman play before the taller woman?",
+        "Does the taller woman play before the shorter woman?",
+        "Is the woman wearing a zip-up hoodie the winner?",
+        "Did the shorter woman win?",
+        "Did the taller woman win?"
+    ],
+    "answers": [
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "Yes",
+        "No"
+    ]
+}

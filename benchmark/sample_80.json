@@ -1,0 +1,23 @@
+{
+    "video_name": "0084_4wvLNZOG7mo.mp4",
+    "questions": [
+        "Are the strawberries dipped into ice water first?",
+        "Are the bananas dipped into ice water first?",
+        "Are the strawberries put in the blender first?",
+        "Are the bananas put in the blender first?",
+        "Is the milk put into the blender last?",
+        "Are the strawberries dipped in ice water after the bananas?",
+        "Are the strawberries put in the blender before the bananas?",
+        "Is the ice put in the blender after the milk is added?"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No"
+    ]
+}

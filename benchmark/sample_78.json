@@ -1,0 +1,21 @@
+{
+    "video_name": "0082_lmMnEJfCFfI.mp4",
+    "questions": [
+        "Are the strawberries mashed first?",
+        "Are the cookies crushed first?",
+        "Is strawberry milk added before fresh milk?",
+        "Is fresh milk added before strawberry milk?",
+        "Are the cookies mashed before the strawberries?",
+        "Are the strawberries mashed before the cookies?",
+        "Are the crushed strawberries and crushed cookies mixed before adding the milk?"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "No"
+    ]
+}

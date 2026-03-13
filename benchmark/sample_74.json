@@ -1,0 +1,27 @@
+{
+    "video_name": "0076_R6ynPpZaVnY.mp4",
+    "questions": [
+        "Does the man open the blue circle first?",
+        "Does the man open the yellow circle first?",
+        "Does the woman open the yellow circle first?",
+        "Does the woman open the red color last?",
+        "Does the man win the game with red color?",
+        "Does the woman win the game with red color?",
+        "Did the man almost win against the woman by revealing the final color?",
+        "Did the woman almost win against the man by revealing the final color?",
+        "Did the man win because the woman revealed the wrong color last?",
+        "Did the woman win because the man revealed the wrong color last?"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "No",
+        "Yes"
+    ]
+}

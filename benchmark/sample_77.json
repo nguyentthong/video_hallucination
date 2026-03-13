@@ -1,0 +1,27 @@
+{
+    "video_name": "0079_p23Pe38CuxQ.mp4",
+    "questions": [
+        "Does the man play the game first?",
+        "Does the man play the game last?",
+        "Does the woman play the game first?",
+        "Does the woman play the game last?",
+        "Does the man win the game?",
+        "Does the woman win the game?",
+        "Was the woman ahead of the man at any point before he overtook her and won?",
+        "Was the man ahead of the woman at any point before she overtook him and won?",
+        "Did the man win after overtaking the woman?",
+        "Did the woman win after overtaking the man?"
+    ],
+    "answers": [
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "No"
+    ]
+}

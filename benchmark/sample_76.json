@@ -1,0 +1,27 @@
+{
+    "video_name": "0078_ycW6HgiHsog.mp4",
+    "questions": [
+        "Does the man play the game first?",
+        "Does the man play the game last?",
+        "Does the woman play the game first?",
+        "Does the woman play the game last?",
+        "Did the woman throw the water bottle three times in her first turn?",
+        "Did the woman throw the water bottle only one time in her first turn?",
+        "Did the man throw the water bottle four times in his first turn?",
+        "Did the man throw the water bottle only one times in his first turn?",
+        "Does the man win the game  with number 3?",
+        "Does the woman win the game with number 3?"
+    ],
+    "answers": [
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "Yes"
+    ]
+}

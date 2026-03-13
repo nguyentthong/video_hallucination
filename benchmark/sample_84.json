@@ -1,0 +1,27 @@
+{
+    "video_name": "0088_6Lqw0l__2uY.mp4",
+    "questions": [
+        "Does the blue team start playing first?",
+        "Does the red team start playing first?",
+        "Does the black hair women start playing first?",
+        "Did the blonde woman start playing first?",
+        "Did the blonde woman start playing before the dark-haired woman?",
+        "Did the dark-haired woman start playing before the blonde woman?",
+        "Did the man in the red hoodie start playing after the man in the red t-shirt?",
+        "Did the man in the red t-shirt start playing after the man in the red hoodie?",
+        "Did the blue team win the game?",
+        "Did the red team win the game?"
+    ],
+    "answers": [
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "No"
+    ]
+}

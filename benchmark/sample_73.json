@@ -1,0 +1,27 @@
+{
+    "video_name": "0075_MZeVvqp5dUM.mp4",
+    "questions": [
+        "Does the man prick a balloon first?",
+        "Does the man prick a balloon last?",
+        "Does the woman wearing a green T-shirt prick a balloon first?",
+        "Does the woman wearing a green T-shirt prick a balloon last?",
+        "Does the woman wearing a orange T-shirt prick a balloon first?",
+        "Does the woman wearing a orange T-shirt prick a balloon last?",
+        "Does the man eat a orange candy first?",
+        "Does the man eat a orange candy last?",
+        "Does the woman wearing a green T-shirt steal candies from the man?",
+        "Does the man steal candies from the woman wearing a green T-shirt?"
+    ],
+    "answers": [
+        "No",
+        "No",
+        "Yes",
+        "No",
+        "No",
+        "Yes",
+        "Yes",
+        "No",
+        "Yes",
+        "No"
+    ]
+}

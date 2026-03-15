@@ -15,7 +15,14 @@ def main(args):
     for idx, benchmark_sample in enumerate(tqdm(benchmark_data)):
         cache_id = get_cache_id(benchmark_sample['video_name'])
         if not cache_system.exist(cache_id):
-            answers = run_model(model_manager, args.model_id, benchmark_sample, sample_id=idx, debug_with_n_frames=args.debug_with_n_frames)
+            answers = run_model(
+                model_manager, 
+                args.model_id, 
+                benchmark_sample, 
+                sample_id=idx, 
+                debug_with_n_frames=args.debug_with_n_frames,
+                max_new_tokens=args.max_new_tokens
+            )
             cache_system.push(cache_id, answers)
         else:
             answers = cache_system.get(cache_id)
@@ -32,5 +39,6 @@ if __name__ == "__main__":
     parser.add_argument("--questions_dir", type=str, default="benchmark")
     parser.add_argument("--mode", type=str, default="all")
     parser.add_argument("--debug_with_n_frames", type=int, default=None)
+    parser.add_argument("--max_new_tokens", type=int, default=256)
     args = parser.parse_args()
     main(args)

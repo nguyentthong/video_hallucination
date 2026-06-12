@@ -1,0 +1,95 @@
+[project]
+name = "video-hallucination"
+version = "0.1.0"
+requires-python = ">=3.10"
+# Core deps shared by ALL setups (no heavy ML framework here).
+dependencies = [
+    "loguru>=0.7.3",
+    "numpy>=1.24.0",
+    "opencv-python>=4.13.0.92",
+    "pillow>=10.0.0",
+    "python-dotenv>=1.2.2",
+    "tqdm>=4.66.0",
+]
+
+# ---------------------------------------------------------------------------
+# Dependency groups — install exactly the groups you need:
+#
+#   Local HuggingFace models (pick ONE; they conflict on transformers version):
+#     uv sync --group qwen3vl          # Qwen3-VL-8B  (stable transformers)
+#     uv sync --group qwen35vl         # Qwen3.5-VL   (dev transformers)
+#
+#   API backends (mix freely, no conflicts):
+#     uv sync --group claude
+#     uv sync --group gemini
+#     uv sync --group openai
+#
+#   Combine local + API in one env (e.g. Qwen3-VL + Gemini):
+#     uv sync --group qwen3vl --group gemini
+#
+#   Everything at once (only if you pick one local-model group):
+#     uv sync --group qwen3vl --group claude --group gemini --group openai
+# ---------------------------------------------------------------------------
+
+[dependency-groups]
+
+# --- Local HuggingFace backends -------------------------------------------
+
+# Qwen3-VL-8B / older Qwen VL checkpoints
+qwen3vl = [
+    "accelerate>=1.13.0",
+    "av==16.1.0",
+    "matplotlib>=3.10.8",
+    "qwen-vl-utils>=0.0.14",
+    "torch>=2.10.0",
+    "torchvision>=0.25.0",
+    "transformers==4.57.1",
+]
+
+# Qwen3.5-VL + frame-selection pipelines (CLIP, AKS, EFS)
+# scipy and scikit-learn are needed by EFS (scene segmentation + MMR)
+qwen35vl = [
+    "accelerate>=1.13.0",
+    "av==16.1.0",
+    "matplotlib>=3.10.8",
+    "qwen-vl-utils>=0.0.14",
+    "scikit-learn>=1.4.0",
+    "scipy>=1.13.0",
+    "torch>=2.10.0",
+    "torchvision>=0.25.0",
+    "transformers>=5.5.3",
+]
+
+# --- API backends (no GPU / transformers needed) --------------------------
+
+claude = [
+    "anthropic>=0.40.0",
+]
+
+gemini = [
+    "av==16.1.0",
+    "google-genai>=1.16.0",
+]
+
+openai = [
+    "av==16.1.0",
+    "openai>=1.30.0",
+    "requests>=2.32.5",
+]
+
+# --- Legacy alias (kept for backward-compat with old README command) -------
+legacy = [{ include-group = "qwen3vl" }]
+
+[tool.uv]
+conflicts = [
+    # The two local-model groups pin different transformers versions.
+    [
+        { group = "qwen3vl" },
+        { group = "qwen35vl" },
+    ],
+    # legacy is an alias for qwen3vl, so it conflicts with qwen35vl too.
+    [
+        { group = "legacy" },
+        { group = "qwen35vl" },
+    ],
+]

@@ -29,6 +29,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from src.metrics import (
     QuestionGroup,
     TargetAccuracy,
+    SubQuestionAccuracy,
+    FaithfulAccuracy,
+    ConditionalConsistency,
+    StrandMetrics,
+    check_invariants,
     ConsistencyAll,
     ConsistencyTargetCorrect,
     ConsistencyTargetWrong,
@@ -226,6 +231,91 @@ def test_verbose_answer_handling():
 
     print("✓ verbose answer handling (yes/no extraction from free-form output)")
 
+
+
+# ---------------------------------------------------------------------------
+# STRAND headline metrics
+# ---------------------------------------------------------------------------
+#
+# Against the same four groups:
+#   G1  target ✓, subs [✓ ✓]   → faithful
+#   G2  target ✓, subs [✗ ✓]   → not faithful (a supporting fact is wrong)
+#   G3  target ✗, subs [✓ ✗]   → not faithful
+#   G4  target ✗, subs [✗]     → not faithful
+#
+#   A_faith  = 1/4                       = 0.250
+#   A_target = 2/4                       = 0.500
+#   A_sub    = (2+1+1+0)/(2+2+2+1) = 4/7 = 0.571
+#   A_cons   = (2/2 + 1/2)/2             = 0.750   ← sub-questions only
+#
+# Note A_cons (0.750) != Cons@TC (0.833): Cons@TC folds the target into the
+# average, which is exactly why it must not be reported as the paper's A_cons.
+
+
+def test_faithful_accuracy():
+    groups = _make_groups()
+    result = FaithfulAccuracy().compute(groups)
+    assert abs(result - 0.250) < TOLERANCE, f"A_faith = {result}"
+    print(f"✓ A_faith  = {result:.4f}")
+
+
+def test_conditional_consistency_excludes_target():
+    groups = _make_groups()
+    a_cons = ConditionalConsistency().compute(groups)
+    cons_tc = ConsistencyTargetCorrect().compute(groups)
+    assert abs(a_cons - 0.750) < TOLERANCE, f"A_cons = {a_cons}"
+    assert abs(cons_tc - 0.833) < TOLERANCE, f"Cons@TC = {cons_tc}"
+    assert a_cons < cons_tc, "Cons@TC must read higher — it includes the target"
+    print(f"✓ A_cons   = {a_cons:.4f} (vs deprecated Cons@TC = {cons_tc:.4f})")
+
+
+def test_faithful_is_bounded_by_target_accuracy():
+    """A_faith <= A_target always: faithfulness is a strict refinement."""
+    groups = _make_groups()
+    assert FaithfulAccuracy().compute(groups) <= TargetAccuracy().compute(groups)
+    print("✓ A_faith <= A_target")
+
+
+def test_faithful_zero_when_nothing_answered():
+    """A model that answers nothing scores 0, not NaN — the denominator is fixed."""
+    groups = _make_groups()
+    for g in groups:
+        g.target_pred = None
+        g.sub_preds = [None] * len(g.sub_questions)
+    assert FaithfulAccuracy().compute(groups) == 0.0
+    print("✓ A_faith = 0 for a model that answers nothing")
+
+
+def test_strand_bundle_and_invariants():
+    groups = _make_groups()
+    details = StrandMetrics().compute_with_details(groups)
+    assert abs(details["faithful_accuracy"] - 0.250) < TOLERANCE
+    assert abs(details["accuracy"] - 0.500) < TOLERANCE
+    assert abs(details["sub_accuracy"] - 4 / 7) < TOLERANCE
+    assert abs(details["conditional_consistency"] - 0.750) < TOLERANCE
+    assert check_invariants(details) == [], check_invariants(details)
+    print("✓ StrandMetrics bundle + invariants")
+
+
+def test_invariants_catch_impossible_numbers():
+    """A_faith above A_target is definitionally impossible and must be caught."""
+    bad = {"faithful_accuracy": 0.90, "accuracy": 0.60, "conditional_consistency": 0.95}
+    problems = check_invariants(bad)
+    assert problems, "invariant violation went undetected"
+    print(f"✓ invariant check rejects impossible rows ({len(problems)} flagged)")
+
+
+def test_faithful_registered_as_primary():
+    from src.metrics import METRIC_REGISTRY
+    assert "faithful_accuracy" in METRIC_REGISTRY
+    assert next(iter(METRIC_REGISTRY)) == "faithful_accuracy", (
+        "A_faith should come first in the registry — it is the primary metric"
+    )
+    names = [m.name for m in build_metrics(["all"])]
+    assert "faithful_accuracy" in names
+    print("✓ faithful_accuracy registered and primary")
+
+
 if __name__ == "__main__":
     test_group_consistency()
     test_consistency_all()
@@ -236,4 +326,11 @@ if __name__ == "__main__":
     test_build_metrics_subset()
     test_build_metrics_unknown_raises()
     test_verbose_answer_handling()
+    test_faithful_accuracy()
+    test_conditional_consistency_excludes_target()
+    test_faithful_is_bounded_by_target_accuracy()
+    test_faithful_zero_when_nothing_answered()
+    test_strand_bundle_and_invariants()
+    test_invariants_catch_impossible_numbers()
+    test_faithful_registered_as_primary()
     print("\nAll tests passed.")

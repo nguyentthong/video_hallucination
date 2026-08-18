@@ -5,12 +5,22 @@ Metric registry.
 
 Available metric keys
 ---------------------
-``"accuracy"``          TargetAccuracy      — fraction of correct target answers
-``"sub_accuracy"``      SubQuestionAccuracy — accuracy on sub-questions only
+``"faithful_accuracy"`` FaithfulAccuracy    — A_faith, the PRIMARY STRAND metric
+``"accuracy"``          TargetAccuracy      — A_target, correct target answers
+``"sub_accuracy"``      SubQuestionAccuracy — A_sub, accuracy on sub-questions only
+``"conditional_consistency"`` ConditionalConsistency — A_cons, reference only
+``"strand"``            StrandMetrics       — all four headline numbers at once
 ``"consistency_all"``   ConsistencyAll      — Cons@All from the PDF
 ``"consistency_tc"``    ConsistencyTargetCorrect  — Cons@TC
 ``"consistency_tw"``    ConsistencyTargetWrong    — Cons@TW
 ``"consistency"``       AllConsistencyMetrics — all three Cons metrics at once
+
+Deprecated
+----------
+The ``Cons@All``/``Cons@TC``/``Cons@TW`` family predates Faithful Accuracy and
+averages over the whole question group, target included.  ``Cons@TC`` is
+therefore NOT the paper's ``A_cons`` and reads systematically higher.  Use
+``"strand"`` for anything you intend to report.
 
 Special sentinel
 ----------------
@@ -28,6 +38,12 @@ from typing import Dict, List, Type
 
 from .accuracy import SubQuestionAccuracy, TargetAccuracy
 from .base import BaseMetric, QuestionGroup
+from .faithful import (
+    ConditionalConsistency,
+    FaithfulAccuracy,
+    StrandMetrics,
+    check_invariants,
+)
 from .consistency import (
     AllConsistencyMetrics,
     ConsistencyAll,
@@ -40,6 +56,10 @@ __all__ = [
     "QuestionGroup",
     "TargetAccuracy",
     "SubQuestionAccuracy",
+    "FaithfulAccuracy",
+    "ConditionalConsistency",
+    "StrandMetrics",
+    "check_invariants",
     "ConsistencyAll",
     "ConsistencyTargetCorrect",
     "ConsistencyTargetWrong",
@@ -53,6 +73,9 @@ __all__ = [
 # ---------------------------------------------------------------------------
 
 METRIC_REGISTRY: Dict[str, Type[BaseMetric]] = {
+    # Primary metric first — this is what STRAND is scored on.
+    "faithful_accuracy": FaithfulAccuracy,
+    "conditional_consistency": ConditionalConsistency,
     "accuracy": TargetAccuracy,
     "sub_accuracy": SubQuestionAccuracy,
     "consistency_all": ConsistencyAll,
@@ -60,6 +83,8 @@ METRIC_REGISTRY: Dict[str, Type[BaseMetric]] = {
     "consistency_tw": ConsistencyTargetWrong,
     # Convenience alias — computes all three consistency metrics
     "consistency": AllConsistencyMetrics,
+    # Convenience alias — the four headline STRAND numbers in reporting order
+    "strand": StrandMetrics,
 }
 
 
@@ -97,7 +122,9 @@ def build_metrics(keys: List[str]) -> List[BaseMetric]:
         # Expand to all individual metrics.  Exclude the "consistency" alias
         # because consistency_all/tc/tw are already present individually,
         # and the alias would duplicate the "consistency_all" key in results.
-        selected_keys = [k for k in METRIC_REGISTRY if k != "consistency"]
+        selected_keys = [
+            k for k in METRIC_REGISTRY if k not in ("consistency", "strand")
+        ]
     else:
         unknown = [k for k in keys if k not in METRIC_REGISTRY]
         if unknown:

@@ -1,5 +1,9 @@
 # Methodology
 
+> **Naming.** The benchmark is **STRAND**. Earlier drafts called it STEMO-Bench,
+> and the framework STEMO-Track; both names are retired. The framework has no
+> product name — refer to it as "our framework".
+
 ## 1. Problem setting
 
 Let $V$ denote a long-form video (typical length 5–60 minutes) and $q$ a natural-language question about $V$. In this work we restrict $q$ to yes/no questions and write the gold answer $y \in \{\text{yes}, \text{no}\}$. The task is to construct a function $f(V, q) \to \hat{y}$ that minimises mistakes, and in particular minimises *hallucinated* answers — answers that are confidently wrong because the model has fabricated entities, events, counts, or temporal relations not supported by the video.
@@ -12,21 +16,24 @@ Monolithic vision-language models (VLMs) — that is, models that consume frames
 
 Each of these failures presents to the user as a confident hallucination rather than a refusal. Mitigating them requires forcing the model to *commit* to intermediate, inspectable representations rather than producing the answer in a single opaque pass.
 
-## 2. Approach: a three-stage decomposition with structured intermediate states
+## 2. Approach: object-centric trajectories as an explicit intermediate state
 
-We propose a pipeline that decomposes $f(V, q)$ into three stages, each with an explicit, inspectable intermediate representation:
+We decompose $f(V, q)$ so that each step has an explicit, inspectable intermediate representation:
 
-$$V \;\;\xrightarrow{\text{A1: extract}}\;\; S \;\;\xrightarrow{\text{B: filter + link}}\;\; (S_q, A) \;\;\xrightarrow{\text{C: answer}}\;\; \hat{y}.$$
+$$V \;\;\xrightarrow{E_\phi}\;\; \tilde{S} \;\;\xrightarrow{\mathcal{A}_\psi}\;\; \hat{S} \;\;\xrightarrow{R_\omega}\;\; S_q \;\;\xrightarrow{G_\eta}\;\; \hat{y}.$$
 
-- **Stage A1 — Extractor (VLM).** Splits $V$ into fixed-length chunks and emits a structured timeline of events.
-- **Stage B — Filter + identity linking (text-only LLM).** Uses $q$ to select the relevant events, and resolves recurring entities across chunks.
-- **Stage C — Answerer (VLM).** Conditions on the filtered timeline *and* a sparse set of raw frames to commit to $\hat{y}$ with an explicit evidence trace.
+The first two steps run **once per video** and are reused by every question about it. The last two run once per question.
+
+- **$E_\phi$ — Chunk-wise state extractor (VLM).** Splits $V$ into disjoint fixed-length chunks and emits a structured, relational timeline. Chunks are processed independently, so extraction parallelises.
+- **$\mathcal{A}_\psi$ — Temporal aggregator (deterministic, symbolic).** Consolidates chunk-level observations into global object trajectories and binds identities across chunk boundaries. **This stage issues no model call.** $\psi = (\Delta t_{\max}, \tau_{\text{conf}})$ are fixed hyperparameters, not learned weights. Replacing it with an LLM summariser is an *ablation*, not the default.
+- **$R_\omega$ — Query-based trajectory retrieval (text-only LLM).** Uses $q$ to select the relevant subset of trajectories.
+- **$G_\eta$ — Trajectory-guided answerer (VLM).** Conditions on the retrieved trajectories *and* a fixed uniformly sampled 64-frame budget, independent of $q$, to commit to $\hat{y}$ with an explicit evidence trace.
 
 The key design commitment is that **the interfaces between stages are model-agnostic data contracts (typed JSON, plain text), not model-specific representations.** Each stage can be instantiated by any model that satisfies the contract — proprietary or open-source, dense or mixture-of-experts, thinking or non-thinking. This allows us to treat each slot independently as an experimental degree of freedom and to characterise the contribution of each stage to overall accuracy and to hallucination reduction.
 
 We describe each stage in detail below, then discuss the design properties that make the pipeline reproducible and extensible (Section 3) and the implementation details that affect reproducibility (Section 4).
 
-## 2.1 Stage A1 — Visual state extractor
+## 2.1 $E_\phi$ — Chunk-wise visual state extractor
 
 Given $V$, we partition the video into non-overlapping chunks $c_1, \ldots, c_n$ of fixed duration $\tau = 15$ seconds. From each chunk we sample $F_c = 60$ frames at uniform temporal stride and pass them, together with a structured-extraction prompt, to a vision-language model $M_{\text{A1}}$. The model emits a JSON object $s_i$ with the following fields:
 
@@ -47,7 +54,7 @@ We concatenate the per-chunk outputs into a single timeline $S = [s_1, \ldots, s
 
 The fact that we observe Stage A1 to occasionally hallucinate — say, an `event_type` label that is not supported by `description` — is itself a measurable phenomenon and informs our prompt design (we instruct the extractor to ground every field in the visible frames and to leave fields empty rather than confabulate when the chunk does not contain the event).
 
-## 2.2 Stage B — Question-conditioned filter and identity linking
+## 2.2 $\mathcal{A}_\psi$ and $R_\omega$ — Symbolic aggregation, then question-conditioned retrieval
 
 Stage B performs two operations on $(q, S)$, both implemented as structured prompts to a text-only language model $M_{\text{B}}$.
 
@@ -75,7 +82,7 @@ by passing the full timeline $S$ to $M_{\text{B}}$ with a prompt that asks it to
 
 We deliberately use a text-only LLM for Stage B rather than a VLM — the input is already textual (the structured states), and a text model is faster, cheaper, and more reliable on the structured selection task.
 
-## 2.3 Stage C — Frame-conditioned answerer
+## 2.3 $G_\eta$ — Trajectory- and frame-conditioned answerer
 
 Stage C consumes $(q, S_q, A)$ along with $F_a = 64$ raw frames sampled uniformly from $V$ and emits a short reasoning trace of the form
 
@@ -138,7 +145,28 @@ We list the hyperparameters and engineering choices that materially affect repro
 - **Concurrency.** Per-question calls are issued in parallel through a thread pool ($\text{concurrency} = 4$ for VLM calls, $8$ for text-only filter). Cache reads and writes are atomic so concurrent workers do not race.
 - **Provider routing.** When a slot is filled by a thinking model served via OpenRouter, we pin the request to a provider known to honour the chat-template kwargs that toggle thinking. We document the exact provider preferences in the experiment notes.
 
-## 5. Where this leaves us
+
+## 5. Evaluation metrics
+
+STRAND is scored on **Faithful Accuracy** ($A_{\text{faith}}$), the primary metric. For a target $i$ with prediction $\hat{y}_i$, gold $y_i$, and $m_i$ supporting sub-questions:
+
+$$A_{\text{faith}} = \frac{1}{N}\sum_{i=1}^{N} \mathbb{1}[\hat{y}_i = y_i]\prod_{j=1}^{m_i}\mathbb{1}[\hat{y}_{ij} = y_{ij}].$$
+
+The denominator is **all $N$ targets**, not only those the model answered correctly. That is what makes $A_{\text{faith}}$ monotone in both target and sub-question correctness, zero for a model that answers nothing, and comparable across models.
+
+Reported alongside it: $A_{\text{target}}$ (target questions only), $A_{\text{sub}}$ (all sub-questions, flat), and $A_{\text{cons}}$ (conditional consistency).
+
+$$A_{\text{cons}} = \frac{1}{|C|}\sum_{i \in C} \frac{1}{m_i}\sum_{j=1}^{m_i}\mathbb{1}[\hat{y}_{ij} = y_{ij}], \qquad C = \{i : \hat{y}_i = y_i\}.$$
+
+$A_{\text{cons}}$ is **reference only**. Because $C$ depends on the model, two models are scored on different subsets; it is maximised by low-recall selectivity and does not fall when a model misses a target outright. Its inner average runs over sub-questions **only** — the target is excluded. The deprecated `Cons@TC` in `src/metrics/consistency.py` averages over the whole group including the target, reads systematically higher, and is **not** $A_{\text{cons}}$.
+
+Two invariants hold by definition and are asserted by `src.metrics.check_invariants`:
+
+$$A_{\text{faith}} \le A_{\text{target}}, \qquad A_{\text{faith}} \le A_{\text{target}} \cdot A_{\text{cons}}.$$
+
+If an evaluation run violates either, the numbers are wrong — fix the run rather than reporting them.
+
+## 6. Where this leaves us
 
 The pipeline as described is an artifact, not a result. The questions we use it to answer experimentally are:
 

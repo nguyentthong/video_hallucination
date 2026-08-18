@@ -3,7 +3,7 @@
 Code and benchmark data for **"STRAND: Benchmarking and Improving Object-Centric
 Spatio-Temporal Monitoring in Video Large Language Models"**.
 
-Project page: https://stemo2026.github.io
+Project page: https://nguyentthong.github.io/strand
 
 This repository holds two things:
 
